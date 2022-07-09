@@ -1,14 +1,14 @@
 package org.learn;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class AppDepInj {
 
 	public static void main(String... args) {
-		ClassPathXmlApplicationContext context =
-				new ClassPathXmlApplicationContext("applicationContext.xml");
+		AnnotationConfigApplicationContext context = 
+				new AnnotationConfigApplicationContext(PersonConfiguration.class);
 		
-		Person person = context.getBean("myPerson",Person.class);
+		Person person = context.getBean("otherPerson",Person.class);
 		
 		System.out.println(person.doSport());
 		
